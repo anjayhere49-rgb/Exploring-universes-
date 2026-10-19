@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b1b">
+  <meta name="description" content="Explore the universe, Earth, animals, microscopic life, and atoms in one journey across scales.">
+  <title>Infinite Explorer</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Infinite Explorer home">
+      <span class="brand-mark">∞</span>
+      <span>INFINITE <b>EXPLORER</b></span>
+    </a>
+    <button id="installBtn" class="install-btn" hidden>Install app</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="live-dot"></span> YOUR JOURNEY STARTS HERE</div>
+      <h1>One universe.<br><span>Infinite discoveries.</span></h1>
+      <p>Zoom your curiosity from galaxies to the tiny building blocks of life.</p>
+      <button class="primary-btn" id="beginBtn">Begin exploring <span>↗</span></button>
+      <div class="orbit-scene" aria-label="Illustration of a glowing planet in space">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="planet"><div class="planet-glow"></div><div class="planet-land"></div></div>
+        <div class="moon"></div><div class="scene-star star-a">✦</div><div class="scene-star star-b">✧</div>
+      </div>
+      <div class="hero-caption"><span>01 / 06</span><span>THE SCALE OF EVERYTHING</span></div>
+    </section>
+
+    <section class="explore-section" id="explore">
+      <div class="section-heading">
+        <div><div class="eyebrow">PICK A DESTINATION</div><h2>Explore the unknown</h2></div>
+        <span class="section-count">06 WORLDS</span>
+      </div>
+      <div class="world-grid">
+        <button class="world-card universe selected" data-world="universe">
+          <span class="card-icon">✦</span><span class="card-number">01</span>
+          <strong>The Universe</strong><small>Galaxies · Nebulae · Stars</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="world-card earth" data-world="earth">
+          <span class="card-icon">🌍</span><span class="card-number">02</span>
+          <strong>Planet Earth</strong><small>Oceans · Mountains · Life</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="world-card animals" data-world="animals">
+          <span class="card-icon">🦋</span><span class="card-number">03</span>
+          <strong>Animal Life</strong><small>Adaptations · Senses · Cells</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="world-card micro" data-world="micro">
+          <span class="card-icon">🔬</span><span class="card-number">04</span>
+          <strong>Micro World</strong><small>Cells · Bacteria · Molecules</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="world-card atom" data-world="atoms">
+          <span class="card-icon">⚛</span><span class="card-number">05</span>
+          <strong>Atomic World</strong><small>Atoms · Particles · Matter</small><span class="card-arrow">↗</span>
+        </button>
+        <button class="world-card journey" data-world="journey">
+          <span class="card-icon">∞</span><span class="card-number">06</span>
+          <strong>Scale Journey</strong><small>From vast to incredibly small</small><span class="card-arrow">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="detail-panel" id="detailPanel" aria-live="polite">
+      <div class="detail-copy">
+        <div class="eyebrow">YOUR CURRENT EXPEDITION</div>
+        <h2 id="detailTitle">The Universe</h2>
+        <p id="detailText">Begin among immense galaxies, glowing nebulae, and stars whose light travels across space.</p>
+        <div class="fact-box"><span class="fact-symbol">✧</span><div><small>QUICK DISCOVERY</small><p id="detailFact">The observable universe contains billions of galaxies, each with vast numbers of stars.</p></div></div>
+      </div>
+      <div class="detail-visual" id="detailVisual"><div class="visual-orb"></div><span class="visual-label">EXPLORE • WONDER • DISCOVER</span></div>
+    </section>
+
+    <section class="scale-section">
+      <div class="section-heading"><div><div class="eyebrow">CHANGE YOUR PERSPECTIVE</div><h2>The scale of everything</h2></div></div>
+      <p class="scale-intro">Move from the largest cosmic structures toward the tiny world of atoms. This is an illustrative journey, not a scientific zoom simulation yet.</p>
+      <div class="scale-control">
+        <div class="scale-labels"><span>🌌 COSMIC</span><span>⚛ MICROSCOPIC</span></div>
+        <input id="scaleSlider" type="range" min="0" max="5" value="0" aria-label="Explore scale">
+        <div class="scale-result"><span id="scaleEmoji">🌌</span><div><small>YOU ARE EXPLORING</small><strong id="scaleName">Galaxy cluster</strong><p id="scaleDescription">Huge groups of galaxies bound together by gravity.</p></div></div>
+        <div class="scale-dots" id="scaleDots"></div>
+      </div>
+    </section>
+    <footer><div class="footer-brand">∞ INFINITE EXPLORER</div><p>Stay curious. The journey has only begun.</p><small>Learning prototype · Facts are simplified for exploration.</small></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
