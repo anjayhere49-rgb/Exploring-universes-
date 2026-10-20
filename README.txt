@@ -1,13 +1,21 @@
-INFINITE EXPLORER — 3D EARTH UPDATE
+INFINITE EXPLORER — INTERACTIVE 3D SOLAR SYSTEM UPDATE
 
-This update adds a rotating 3D Earth using Three.js. Drag on the planet to rotate it. The Earth texture and Three.js library load from external URLs, so an internet connection is required. If the 3D globe fails, a stylised fallback illustration should remain visible.
+WHAT'S INCLUDED
+- Sun and all eight planets in one interactive Three.js scene
+- Selectable planet buttons and tap-to-select in the 3D scene
+- Information cards with planet type, year length, distance, and a fact
+- Saturn rings, star field, mobile-friendly layout, and your existing Explorer sections
+- PWA manifest and service-worker files retained
 
-UPDATE YOUR EXISTING GITHUB REPOSITORY
-1. Extract this ZIP on your Android phone.
-2. Open your GitHub repository in Chrome.
-3. Use Add file > Upload files and upload/replace all files in this folder: index.html, styles.css, app.js, earth3d.js, manifest.json, sw.js, icon.svg, README.txt.
-4. Commit the changes.
-5. Confirm Settings > Pages uses main and /(root).
-6. Wait for deployment, then refresh the website. If unchanged, try an Incognito tab.
+ANDROID / GITHUB PAGES
+1. Keep this ZIP as a backup. Extract it on your phone.
+2. Open your existing GitHub repository in Chrome.
+3. Open the project folder inside the ZIP and upload/replace all files in the repository root: index.html, styles.css, app.js, earth3d.js, manifest.json, sw.js, icon.svg, README.txt.
+4. Commit the changes, then wait for GitHub Pages to deploy.
+5. Open the published website and refresh. If the old version remains, try a private/incognito tab.
 
-This is a web app/PWA prototype, not a native APK. This update adds 3D Earth only; the other destinations are still educational prototype screens. Never share your GitHub password, access token, or verification codes.
+NOTES
+- The Three.js module loads from jsDelivr, so the 3D scene needs an internet connection.
+- Planet appearance is currently stylized with procedural colors; it does not require external planet texture downloads.
+- This is a responsive web app/PWA prototype, not a native Android APK.
+- Never share your GitHub password, access token, or verification codes.
