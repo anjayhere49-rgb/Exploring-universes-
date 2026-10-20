@@ -28,4 +28,70 @@
   <button id="free-flight-button" type="button">🕹️ Free Flight</button>
 
   <p id="flight-status" role="status">Spaceship ready. Choose your destination.</p>
-</div></section><section id="explore"><p class="eyebrow">PICK A DESTINATION</p><h2>Explore the unknown</h2><div class="grid"><button data-title="The Universe" data-text="Explore galaxies, nebulae, stars, and black holes." data-fact="The observable universe contains billions of galaxies.">🌌<b>The Universe</b><small>Galaxies · Stars · Nebulae</small></button><button data-title="Planet Earth" data-text="Discover oceans, mountains, weather, and the web of life." data-fact="Earth is the only world currently known to support life.">🌍<b>Planet Earth</b><small>Oceans · Mountains · Life</small></button><button data-title="Animal Life" data-text="Learn how animals sense, adapt, and survive." data-fact="Octopuses have neurons distributed through their arms.">🦋<b>Animal Life</b><small>Adaptations · Senses · Cells</small></button><button data-title="Micro World" data-text="Meet cells, microorganisms, and the molecules of life." data-fact="Many human cells are only a few tens of micrometres across.">🔬<b>Micro World</b><small>Cells · Bacteria · Molecules</small></button><button data-title="Atomic World" data-text="Explore atoms and the building blocks of matter." data-fact="Atoms contain a tiny nucleus surrounded by an electron cloud.">⚛️<b>Atomic World</b><small>Atoms · Particles · Matter</small></button><button data-title="Scale Journey" data-text="Travel from cosmic structures to microscopic scales." data-fact="Nature spans an enormous range of sizes.">♾️<b>Scale Journey</b><small>Vast to incredibly small</small></button></div></section><section class="detail"><p class="eyebrow">YOUR CURRENT EXPEDITION</p><h2 id="title">The Universe</h2><p id="text">Explore galaxies, nebulae, stars, and black holes.</p><div class="fact"><small>QUICK DISCOVERY</small><p id="fact">The observable universe contains billions of galaxies.</p></div></section><section class="scale"><p class="eyebrow">CHANGE YOUR PERSPECTIVE</p><h2>The scale of everything</h2><input id="slider" type="range" min="0" max="5" value="0"><div class="scale-result"><span id="emoji">🌌</span><div><b id="scaleName">Galaxy cluster</b><p id="scaleText">Huge groups of galaxies bound together by gravity.</p></div></div></section></main><footer>∞ INFINITE EXPLORER · STAY CURIOUS</footer><script src="app.js"></script><script type="module" src="earth3d.js"></script></body></html>
+</div></section><section id="explore"><p class="eyebrow">PICK A DESTINATION</p><h2>Explore the unknown</h2><div class="grid"><button data-title="The Universe" data-text="Explore galaxies, nebulae, stars, and black holes." data-fact="The observable universe contains billions of galaxies.">🌌<b>The Universe</b><small>Galaxies · Stars · Nebulae</small></button><button data-title="Planet Earth" data-text="Discover oceans, mountains, weather, and the web of life." data-fact="Earth is the only world currently known to support life.">🌍<b>Planet Earth</b><small>Oceans · Mountains · Life</small></button><button data-title="Animal Life" data-text="Learn how animals sense, adapt, and survive." data-fact="Octopuses have neurons distributed through their arms.">🦋<b>Animal Life</b><small>Adaptations · Senses · Cells</small></button><button data-title="Micro World" data-text="Meet cells, microorganisms, and the molecules of life." data-fact="Many human cells are only a few tens of micrometres across.">🔬<b>Micro World</b><small>Cells · Bacteria · Molecules</small></button><button data-title="Atomic World" data-text="Explore atoms and the building blocks of matter." data-fact="Atoms contain a tiny nucleus surrounded by an electron cloud.">⚛️<b>Atomic World</b><small>Atoms · Particles · Matter</small></button><button data-title="Scale Journey" data-text="Travel from cosmic structures to microscopic scales." data-fact="Nature spans an enormous range of sizes.">♾️<b>Scale Journey</b><small>Vast to incredibly small</small></button></div></section><section class="detail"><p class="eyebrow">YOUR CURRENT EXPEDITION</p><h2 id="title">The Universe</h2><p id="text">Explore galaxies, nebulae, stars, and black holes.</p><div class="fact"><small>QUICK DISCOVERY</small><p id="fact">The observable universe contains billions of galaxies.</p></div></section><section class="scale"><p class="eyebrow">CHANGE YOUR PERSPECTIVE</p><h2>The scale of everything</h2><input id="slider" type="range" min="0" max="5" value="0"><div class="scale-result"><span id="emoji">🌌</span><div><b id="scaleName">Galaxy cluster</b><p id="scaleText">Huge groups of galaxies bound together by gravity.</p></div></div></section></main><footer>∞ INFINITE EXPLORER · STAY CURIOUS</footer><script src="app.js"></script><script type="module" src="earth3d.js"></script><!-- LIFE ON EARTH SECTION -->
+<section id="life-on-earth" class="life-section">
+
+  <div class="life-heading">
+    <p class="eyebrow">BEYOND THE STARS</p>
+    <h2>Life on Earth 🌍</h2>
+    <p>
+      Discover the incredible diversity of life,
+      from giant animals to microscopic organisms.
+    </p>
+  </div>
+
+  <div class="life-grid">
+
+    <article class="life-card">
+      <div class="life-icon">🦁</div>
+      <h3>Animals & Wildlife</h3>
+      <p>Explore mammals, birds, reptiles, and the habitats they call home.</p>
+      <button class="life-explore" data-topic="animals">Explore Life ↗</button>
+    </article>
+
+    <article class="life-card">
+      <div class="life-icon">🦠</div>
+      <h3>Microscopic World</h3>
+      <p>Discover cells, bacteria, and tiny organisms invisible to the naked eye.</p>
+      <button class="life-explore" data-topic="micro">Explore Life ↗</button>
+    </article>
+
+    <article class="life-card">
+      <div class="life-icon">🌊</div>
+      <h3>Ocean Life</h3>
+      <p>Dive into marine ecosystems filled with fish, whales, corals, and more.</p>
+      <button class="life-explore" data-topic="ocean">Explore Life ↗</button>
+    </article>
+
+    <article class="life-card">
+      <div class="life-icon">🦋</div>
+      <h3>Insects & Tiny Creatures</h3>
+      <p>Discover fascinating insects, spiders, and their important roles in nature.</p>
+      <button class="life-explore" data-topic="insects">Explore Life ↗</button>
+    </article>
+
+    <article class="life-card">
+      <div class="life-icon">🌿</div>
+      <h3>Plants & Fungi</h3>
+      <p>Explore forests, flowers, mushrooms, and the hidden world of plants.</p>
+      <button class="life-explore" data-topic="plants">Explore Life ↗</button>
+    </article>
+
+    <article class="life-card">
+      <div class="life-icon">🔬</div>
+      <h3>Human Biology</h3>
+      <p>Learn about human cells, DNA, organs, and how the body works.</p>
+      <button class="life-explore" data-topic="human">Explore Life ↗</button>
+    </article>
+
+  </div>
+
+  <div id="life-detail" class="life-detail" hidden aria-live="polite">
+    <button id="life-close" type="button" aria-label="Close details">✕</button>
+    <p class="eyebrow">DISCOVERY LOG</p>
+    <h3 id="life-detail-title">Explore Life</h3>
+    <p id="life-detail-text"></p>
+  </div>
+
+</section>
+<!-- END LIFE ON EARTH SECTION --></body></html>
