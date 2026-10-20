@@ -29,7 +29,16 @@ try{
  createPicker();choose('Earth',false);wrap.classList.add('ready');
  function resize(){const w=Math.max(mount.clientWidth,1),h=Math.max(mount.clientHeight,1);renderer.setSize(w,h,false);camera.aspect=w/h;if(!window.__ieCameraInitialized){cameraDistance=camera.aspect<0.7?10:8;window.__ieCameraInitialized=true;}updateCamera();}function updateCamera(){const narrow=camera.aspect<0.7;const target=new THREE.Vector3(0,0,0);if(focusedPlanet){const m=planetMeshes.find(p=>p.userData.name===focusedPlanet);if(m)m.getWorldPosition(target);}camera.position.set(target.x,target.y+cameraDistance*(narrow?.18:.12),target.z+cameraDistance);camera.lookAt(target);camera.updateProjectionMatrix();}new ResizeObserver(resize).observe(mount);resize();
  // Zoom with the mouse wheel or a two-finger pinch; no on-screen zoom buttons.
- mount.addEventListener('wheel',e=>{e.preventDefault();cameraDistance=Math.max(focusedPlanet?.65:4.5,Math.min(24,cameraDistance*(e.deltaY>0?1.08:.92)));updateCamera();},{passive:false});
+ mount.addEventListener('wheel', e => {
+  e.preventDefault();
+
+  cameraDistance = Math.max(
+    focusedPlanet ? 0.18 : 4.5,
+    Math.min(24, cameraDistance * (e.deltaY > 0 ? 1.08 : 0.92))
+  );
+
+  updateCamera();
+}, { passive: false });
  // Drag to rotate; two-finger pinch to zoom on touch screens.
  const activePointers=new Map();let pinchDistance=0;
  const distanceBetween=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
