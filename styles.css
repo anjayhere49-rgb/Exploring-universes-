@@ -65,3 +65,34 @@
   .planet-wrap .scene-fact { font-size:11px !important; }
   .planet-wrap .planet-label { bottom: 3px !important; max-width: 68% !important; font-size:8px !important; }
 }
+
+
+/* Popup behaviour: keep the 3D view clear until a planet is selected */
+.planet-wrap .scene-info {
+  display: none !important;
+  pointer-events: auto !important;
+  z-index: 12 !important;
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+  width: min(340px, calc(100% - 24px)) !important;
+  max-width: calc(100% - 24px) !important;
+  max-height: calc(100% - 24px) !important;
+  overflow-y: auto !important;
+  transform: translate(-50%, -50%) !important;
+}
+.planet-wrap .scene-info.is-open { display: block !important; }
+.scene-info-close {
+  position: absolute; top: 7px; right: 8px; z-index: 2;
+  width: 36px; height: 36px; border: 1px solid #ffffff30;
+  border-radius: 50%; background: #ffffff12; color: #fff;
+  font-size: 25px; line-height: 1; cursor: pointer;
+}
+.scene-info-top { padding-right: 34px; }
+@media (max-width:650px) {
+  .planet-wrap .scene-info { width: min(340px, calc(100% - 20px)) !important; padding: 16px !important; }
+  .planet-wrap .scene-info h3 { font-size: 24px !important; }
+  .planet-wrap .scene-info > p:not(.scene-fact) { font-size: 13px !important; }
+  .planet-wrap .scene-stats b { font-size: 13px !important; }
+  .planet-wrap .scene-fact { font-size: 12px !important; }
+}
