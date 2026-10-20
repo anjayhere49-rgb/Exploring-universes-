@@ -42,7 +42,11 @@ try{
  mount.addEventListener('pointermove',e=>{
    if(!activePointers.has(e.pointerId))return;
    activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
-   if(activePointers.size>=2){const pts=[...activePointers.values()];const next=distanceBetween(pts[0],pts[1]);if(pinchDistance>0&&next>0){cameraDistance=Math.max(focusedPlanet?.65:4.5,Math.min(24,cameraDistance*(pinchDistance/next)));updateCamera();}pinchDistance=next;dragging=false;return;}
+   if(activePointers.size>=2){const pts=[...activePointers.values()];const next=distanceBetween(pts[0],pts[1]);if(pinchDistance>0&&next>0){cameraDistance = Math.max(
+  focusedPlanet ? 0.18 : 4.5,
+  Math.min(24, cameraDistance * (pinchDistance / next))
+);
+updateCamera();}pinchDistance=next;dragging=false;return;}
    if(!dragging)return;
    rotY+=(e.clientX-lastX)*.006;rotX+=(e.clientY-lastY)*.004;rotX=Math.max(-.8,Math.min(.8,rotX));lastX=e.clientX;lastY=e.clientY;
  });
