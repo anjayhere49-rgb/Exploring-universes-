@@ -78,4 +78,172 @@ updateCamera();}pinchDistance=next;dragging=false;return;}
  function animate(){requestAnimationFrame(animate);const infoPanel=document.getElementById('scene-info');const popupOpen=!!(infoPanel&&infoPanel.classList.contains('is-open'));if(!dragging&&!popupOpen&&!focusedPlanet){solar.rotation.y+=.0008;}if(!popupOpen){solar.rotation.y+=rotY*.001;solar.rotation.x+=(rotX-solar.rotation.x)*.04;}if(focusedPlanet)updateCamera();planetMeshes.forEach((m,i)=>{if(m.userData.name!==selected){m.userData.holder.rotation.y+=.0015/(i+1);m.rotation.y+=.004;}});renderer.render(scene,camera);}animate();
 }catch(e){console.warn('3D Solar System unavailable; fallback illustration is shown.',e);createPicker();choose('Earth');}
 
-const closeSceneInfo=document.getElementById('scene-info-close');if(closeSceneInfo){closeSceneInfo.addEventListener('pointerdown',e=>e.stopPropagation());closeSceneInfo.addEventListener('click',e=>{e.stopPropagation();const panel=document.getElementById('scene-info');panel.classList.remove('is-open');panel.setAttribute('aria-hidden','true');});}
+const closeSceneInfo=document.getElementById('scene-info-close');if(closeSceneInfo){closeSceneInfo.addEventListener('pointerdown',e=>e.stopPropagation());closeSceneInfo.addEventListener('click',e=>{e.stopPropagation();const panel=document.getElementById('scene-info');panel.classList.remove('is-open');panel.setAttribute('aria-hidden','true');});}// =====================================
+// INFINITE EXPLORER — FLIGHT SYSTEM
+// =====================================
+
+const flightDestination = document.getElementById('flight-destination');
+const travelButton = document.getElementById('travel-button');
+const freeFlightButton = document.getElementById('free-flight-button');
+const flightStatus = document.getElementById('flight-status');
+
+let spaceship = null;
+let engineGlow = null;
+let flightMode = false;
+let travelActive = false;
+let travelProgress = 0;
+let travelStart = new THREE.Vector3();
+let travelEnd = new THREE.Vector3();
+let flightDirection = new THREE.Vector3(0, 0, -1);
+
+if (typeof scene !== 'undefined' && scene && typeof THREE !== 'undefined') {
+  // A simple 3D spaceship made from Three.js shapes.
+  spaceship = new THREE.Group();
+
+  const hull = new THREE.Mesh(
+    new THREE.ConeGeometry(0.09, 0.38, 8),
+    new THREE.MeshStandardMaterial({
+      color: 0xdce9ff,
+      metalness: 0.65,
+      roughness: 0.3
+    })
+  );
+
+  hull.rotation.x = -Math.PI / 2;
+  spaceship.add(hull);
+
+  const cockpit = new THREE.Mesh(
+    new THREE.SphereGeometry(0.055, 12, 12),
+    new THREE.MeshBasicMaterial({ color: 0x45d9ff })
+  );
+
+  cockpit.position.z = -0.055;
+  spaceship.add(cockpit);
+
+  const wingMaterial = new THREE.MeshStandardMaterial({
+    color: 0x6688cc,
+    metalness: 0.5,
+    roughness: 0.4
+  });
+
+  const wings = new THREE.Mesh(
+    new THREE.BoxGeometry(0.42, 0.025, 0.12),
+    wingMaterial
+  );
+
+  wings.position.z = 0.04;
+  spaceship.add(wings);
+
+  engineGlow = new THREE.Mesh(
+    new THREE.SphereGeometry(0.045, 12, 12),
+    new THREE.MeshBasicMaterial({
+      color: 0xff8b35,
+      transparent: true,
+      opacity: 0.9
+    })
+  );
+
+  engineGlow.position.z = 0.21;
+  spaceship.add(engineGlow);
+
+  spaceship.scale.setScalar(1.4);
+  spaceship.position.set(0, 0, 0.9);
+  scene.add(spaceship);
+}
+
+function setFlightStatus(message) {
+  if (flightStatus) flightStatus.textContent = message;
+}
+
+if (travelButton && flightDestination) {
+  travelButton.addEventListener('click', () => {
+    const destination = flightDestination.value;
+
+    if (!spaceship || !planetMeshes.length) {
+      setFlightStatus('The 3D scene is not ready yet. Please reload the page.');
+      return;
+    }
+
+    const planet = planetMeshes.find(
+      p => p.userData.name === destination
+    );
+
+    if (!planet) {
+      setFlightStatus('Destination not found. Please choose another planet.');
+      return;
+    }
+
+    const worldPosition = new THREE.Vector3();
+    planet.getWorldPosition(worldPosition);
+
+    travelStart.copy(spaceship.position);
+    travelEnd.copy(worldPosition);
+    travelActive = true;
+    flightMode = false;
+    travelProgress = 0;
+
+    setFlightStatus('🚀 Travelling to ' + destination + '...');
+  });
+}
+
+if (freeFlightButton) {
+  freeFlightButton.addEventListener('click', () => {
+    if (!spaceship) {
+      setFlightStatus('The spaceship is not ready yet. Please reload the page.');
+      return;
+    }
+
+    flightMode = !flightMode;
+    travelActive = false;
+
+    setFlightStatus(
+      flightMode
+        ? '🕹️ Free Flight enabled. Tap Travel to Planet to navigate.'
+        : 'Free Flight disabled.'
+    );
+
+    freeFlightButton.textContent = flightMode
+      ? '🕹️ Exit Free Flight'
+      : '🕹️ Free Flight';
+  });
+}// INFINITE EXPLORER — SPACESHIP MOVEMENT
+
+function animateFlight() {
+  requestAnimationFrame(animateFlight);
+
+  if (!spaceship) return;
+
+  // Animate the spaceship engine glow
+  if (engineGlow) {
+    engineGlow.scale.setScalar(
+      0.8 + Math.random() * 0.5
+    );
+  }
+
+  // Travel smoothly toward the selected planet
+  if (travelActive) {
+    travelProgress += 0.006;
+
+    const progress = Math.min(travelProgress, 1);
+
+    // Smooth acceleration and deceleration
+    const smoothProgress =
+      progress * progress * (3 - 2 * progress);
+
+    spaceship.position.lerpVectors(
+      travelStart,
+      travelEnd,
+      smoothProgress
+    );
+
+    if (progress >= 1) {
+      travelActive = false;
+
+      setFlightStatus(
+        '🌍 Destination reached! Your spaceship has arrived.'
+      );
+    }
+  }
+}
+
+animateFlight();
