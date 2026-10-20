@@ -483,4 +483,22 @@
   .life-explore:hover {
     transform: none;
   }
+}/* INFINITE EXPLORER — 3D SCENE VISIBILITY FIX */
+#earth {
+  display: block !important;
+  width: 100%;
+  min-height: 420px;
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+#earth canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.planet-wrap {
+  min-height: 420px;
 }
