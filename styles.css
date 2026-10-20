@@ -96,3 +96,42 @@
   .planet-wrap .scene-stats b { font-size: 13px !important; }
   .planet-wrap .scene-fact { font-size: 12px !important; }
 }
+
+
+/* Infinite Explorer layout refinement: larger 3D viewport + information docked at bottom */
+.hero { min-height: 760px !important; align-items: flex-start !important; }
+.hero .copy { width: 42% !important; }
+.planet-wrap { top: 90px !important; right: 0 !important; width: 68% !important; height: 650px !important; }
+#earth { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; }
+.planet-wrap .fallback { top: 145px !important; width: 230px !important; height: 230px !important; }
+.planet-wrap .orbit { top: 300px !important; }
+.planet-wrap .scene-info {
+  top: auto !important; bottom: 42px !important; left: 50% !important; right: auto !important;
+  transform: translateX(-50%) !important; width: min(460px, calc(100% - 24px)) !important;
+  max-width: calc(100% - 24px) !important; max-height: 47% !important; overflow-y: auto !important;
+  padding: 16px !important; border-radius: 16px !important;
+}
+.planet-wrap .planet-label { bottom: 7px !important; right: 10px !important; z-index: 10 !important; }
+@media (max-width: 650px) {
+  .hero { min-height: 1000px !important; display: block !important; padding-top: 25px !important; }
+  .hero .copy { width: 100% !important; }
+  .hero .copy h1 { font-size: clamp(38px, 12vw, 54px) !important; }
+  .hero .intro { max-width: 100% !important; }
+  .planet-wrap { top: 300px !important; left: -4% !important; right: auto !important; width: 108% !important; height: 650px !important; }
+  #earth { height: 100% !important; }
+  .planet-wrap .fallback { top: 70px !important; width: 190px !important; height: 190px !important; }
+  .planet-wrap .orbit { top: 180px !important; width: 310px !important; }
+  .planet-wrap .scene-info {
+    top: auto !important; bottom: 45px !important; left: 10px !important; right: 10px !important;
+    transform: none !important; width: auto !important; max-width: none !important;
+    max-height: 43% !important; padding: 14px !important; border-radius: 16px !important;
+  }
+  .planet-wrap .scene-info h3 { font-size: 23px !important; }
+  .planet-wrap .scene-info > p:not(.scene-fact) { font-size: 12px !important; }
+  .planet-wrap .scene-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .planet-wrap .scene-stats span { padding: 8px !important; }
+  .planet-wrap .scene-stats b { font-size: 12px !important; }
+  .planet-wrap .scene-fact { font-size: 11px !important; }
+  .planet-wrap .planet-label { bottom: 7px !important; right: 12px !important; max-width: 65% !important; }
+}
+@media (prefers-reduced-motion: reduce) { .planet-wrap * { scroll-behavior: auto !important; } }
