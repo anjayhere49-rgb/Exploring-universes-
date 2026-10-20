@@ -24,3 +24,6 @@ NOTES
 
 SELECTED PLANET INFO OVERLAY
 When a planet is selected, its information panel appears centered inside the 3D viewing area, overlaying the selected planet. Close it with the X button to return to the unobstructed scene.
+
+
+Version 8 update: added zoom in/out/reset controls and mouse-wheel zoom; added optional realistic surface texture maps for all eight planets. Texture maps require an internet connection; coloured 3D spheres remain as fallback.
