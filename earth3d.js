@@ -246,4 +246,67 @@ function animateFlight() {
   }
 }
 
-animateFlight();
+animateFlight();// =====================================
+// INFINITE EXPLORER — LIFE DISCOVERY
+// =====================================
+
+const lifeTopics = {
+  animals: {
+    title: "🦁 Animals & Wildlife",
+    text: "Earth is home to millions of animal species. Mammals, birds, reptiles, and amphibians live in habitats ranging from rainforests to deserts. Explore how animals adapt, communicate, and survive."
+  },
+
+  micro: {
+    title: "🦠 The Microscopic World",
+    text: "Microscopic life includes bacteria, many fungi, and single-celled organisms. Cells are the basic units of life. Microscopes help scientists study tiny worlds that our eyes cannot see."
+  },
+
+  ocean: {
+    title: "🌊 Ocean Life",
+    text: "Oceans cover most of Earth's surface and support an extraordinary variety of life. Coral reefs, deep-sea habitats, fish, whales, and microscopic plankton all play important roles in marine ecosystems."
+  },
+
+  insects: {
+    title: "🦋 Insects & Tiny Creatures",
+    text: "Insects are among Earth's most diverse animals. Bees pollinate flowers, many insects help recycle nutrients, and spiders help control populations of other small creatures."
+  },
+
+  plants: {
+    title: "🌿 Plants & Fungi",
+    text: "Plants use sunlight to make food through photosynthesis. Fungi help break down dead material and recycle nutrients. Together, these organisms support many of Earth's ecosystems."
+  },
+
+  human: {
+    title: "🔬 Human Biology",
+    text: "The human body is made of trillions of cells organized into tissues, organs, and organ systems. DNA carries genetic instructions that help cells grow, function, and reproduce."
+  }
+};
+
+document.querySelectorAll(".life-explore").forEach(button => {
+  button.addEventListener("click", () => {
+    const topic = lifeTopics[button.dataset.topic];
+
+    if (!topic) return;
+
+    const panel = document.getElementById("life-detail");
+    const title = document.getElementById("life-detail-title");
+    const text = document.getElementById("life-detail-text");
+
+    if (!panel || !title || !text) return;
+
+    title.textContent = topic.title;
+    text.textContent = topic.text;
+
+    panel.hidden = false;
+    panel.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+});
+
+document.getElementById("life-close")?.addEventListener("click", () => {
+  document.getElementById("life-detail").hidden = true;
+});
+
+console.log("Infinite Explorer: Life Discovery ready! 🌍");
