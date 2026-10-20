@@ -301,3 +301,12 @@
 
 /* v10: hide legacy zoom controls; use two-finger pinch instead. */
 .ie-zoom-controls{display:none!important}
+/* Infinite Explorer: hide zoom buttons and enable pinch zoom */
+.ie-zoom-controls {
+  display: none !important;
+}
+
+#earth,
+#earth canvas {
+  touch-action: none !important;
+  }
