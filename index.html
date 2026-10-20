@@ -1,4 +1,47 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b1b"><title>Infinite Explorer</title><link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.json"></head><body><header><a href="#" class="brand">∞ INFINITE <b>EXPLORER</b></a><span class="badge">INTERACTIVE 3D SOLAR SYSTEM</span></header><main><section class="hero"><div class="copy"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h1>Meet our<br><span>Solar System.</span></h1><p class="intro">Explore the Sun and all eight planets in one interactive 3D scene.</p><button id="begin">Choose a planet ↗</button><p class="hint">Drag to look around · Tap a planet to learn more.</p></div><div class="planet-wrap"><div id="earth" aria-label="Interactive 3D solar system"></div><div class="fallback"></div><div class="orbit"></div><div id="scene-info" class="scene-info" aria-live="polite" aria-hidden="true"><button id="scene-info-close" class="scene-info-close" type="button" aria-label="Close planet information">×</button><div class="scene-info-top"><span class="scene-kicker">PLANET PROFILE</span><span id="scene-type" class="scene-type">Terrestrial</span></div><h3 id="scene-name">Earth</h3><p id="scene-description">Our home world, with liquid-water oceans and a protective atmosphere.</p><div class="scene-stats"><span><small>YEAR</small><b id="scene-year">365 days</b></span><span><small>DISTANCE</small><b id="scene-distance">1 AU</b></span><span><small>MOONS</small><b id="scene-moons">1</b></span><span><small>TEMP.</small><b id="scene-temp">15°C</b></span></div><p id="scene-fact" class="scene-fact">Earth is the only world currently known to support life.</p></div><span class="planet-label">☀️ SUN + 8 PLANETS · LIVE 3D</span></div></section><section id="solar-system"><p class="eyebrow">CHOOSE YOUR WORLD</p><h2>Explore the planets</h2><div id="planet-picker" class="planet-picker" aria-label="Select a planet"></div><div id="planet-info" class="planet-info" aria-live="polite"><div><p class="eyebrow">YOUR SELECTED WORLD</p><h2 id="planet-name">Earth</h2><p id="planet-description">Our home world, with liquid-water oceans and a protective atmosphere.</p></div><div class="planet-stats"><span><small>TYPE</small><b id="planet-type">Terrestrial</b></span><span><small>YEAR</small><b id="planet-year">365 days</b></span><span><small>FROM SUN</small><b id="planet-distance">1 AU</b></span><span><small>KNOWN MOONS</small><b id="planet-moons">1</b></span><span><small>AVG. TEMP.</small><b id="planet-temp">15°C</b></span></div><p id="planet-fact" class="planet-fact">Earth is the only world currently known to support life.</p></div><div class="mission-panel">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b1b"><title>Infinite Explorer</title><link rel="stylesheet" href="styles.css"><link rel="manifest" href="manifest.json"></head><body><header><a href="#" class="brand">∞ INFINITE <b>EXPLORER</b></a><span class="badge">INTERACTIVE 3D SOLAR SYSTEM</span></header><main><section class="hero"><div class="copy"><p class="eyebrow">YOUR JOURNEY STARTS HERE</p><h1>Meet our<br><span>Solar System.</span></h1><p class="intro">Explore the Sun and all eight planets in one interactive 3D scene.</p><button id="begin">Choose a planet ↗</button><p class="hint">Drag to look around · Tap a planet to learn more.</p></div><div class="planet-wrap"><div id="earth" aria-label="Interactive 3D solar system"></div><div class="fallback"></div><div class="orbit"></div><div id="scene-info" class="scene-info" aria-live="polite" aria-hidden="true"><button id="scene-info-close" class="scene-info-close" type="button" aria-label="Close planet information">×</button><div class="scene-info-top"><span class="scene-kicker">PLANET PROFILE</span><span id="scene-type" class="scene-type">Terrestrial</span></div><h3 id="scene-name">Earth</h3><p id="scene-description">Our home world, with liquid-water oceans and a protective atmosphere.</p><div class="scene-stats"><span><small>YEAR</small><b id="scene-year">365 days</b></span><span><small>DISTANCE</small><b id="scene-distance">1 AU</b></span><span><small>MOONS</small><b id="scene-moons">1</b></span><span><small>TEMP.</small><b id="scene-temp">15°C</b></span></div><p id="scene-fact" class="scene-fact">Earth is the only world currently known to support life.</p></div><span class="planet-label">☀️ SUN + 8 PLANETS · LIVE 3D</span></div></section><section id="solar-system"><p class="eyebrow">CHOOSE YOUR WORLD</p><h2>Explore the planets</h2><!-- PLANET ENCYCLOPEDIA -->
+<div class="encyclopedia-panel">
+  <p class="eyebrow">INFINITE EXPLORER DATABASE</p>
+  <h3>🪐 Planet Encyclopedia</h3>
+  <p>Select a celestial body to discover its secrets.</p>
+
+  <label for="encyclopedia-select">Choose your destination:</label>
+
+  <select id="encyclopedia-select">
+    <option value="Sun">☀️ The Sun</option>
+    <option value="Mercury">☿ Mercury</option>
+    <option value="Venus">♀ Venus</option>
+    <option value="Earth" selected>🌍 Earth</option>
+    <option value="Mars">♂ Mars</option>
+    <option value="Jupiter">♃ Jupiter</option>
+    <option value="Saturn">♄ Saturn</option>
+    <option value="Uranus">♅ Uranus</option>
+    <option value="Neptune">♆ Neptune</option>
+  </select>
+
+  <div id="encyclopedia-result" aria-live="polite">
+    <h4 id="encyclopedia-name">🌍 Earth</h4>
+    <p id="encyclopedia-description">
+      Our home planet, with liquid-water oceans and a protective atmosphere.
+    </p>
+
+    <div class="encyclopedia-stats">
+      <div><small>TYPE</small><b id="encyclopedia-type">Terrestrial planet</b></div>
+      <div><small>DIAMETER</small><b id="encyclopedia-diameter">12,742 km</b></div>
+      <div><small>DAY LENGTH</small><b id="encyclopedia-day">24 hours</b></div>
+      <div><small>YEAR LENGTH</small><b id="encyclopedia-year">365.25 days</b></div>
+      <div><small>DISTANCE FROM SUN</small><b id="encyclopedia-distance">149.6 million km</b></div>
+      <div><small>KNOWN MOONS</small><b id="encyclopedia-moons">1</b></div>
+    </div>
+
+    <p class="encyclopedia-fact">
+      <strong>Did you know?</strong>
+      <span id="encyclopedia-fact">
+        Earth is the only world currently known to support life.
+      </span>
+    </p>
+  </div>
+</div>
+<!-- END PLANET ENCYCLOPEDIA --><div id="planet-info" class="planet-info" aria-live="polite"><div><p class="eyebrow">YOUR SELECTED WORLD</p><h2 id="planet-name">Earth</h2><p id="planet-description">Our home world, with liquid-water oceans and a protective atmosphere.</p></div><div class="planet-stats"><span><small>TYPE</small><b id="planet-type">Terrestrial</b></span><span><small>YEAR</small><b id="planet-year">365 days</b></span><span><small>FROM SUN</small><b id="planet-distance">1 AU</b></span><span><small>KNOWN MOONS</small><b id="planet-moons">1</b></span><span><small>AVG. TEMP.</small><b id="planet-temp">15°C</b></span></div><p id="planet-fact" class="planet-fact">Earth is the only world currently known to support life.</p></div><div class="mission-panel">
   <div>
     <p class="eyebrow">FLIGHT DECK</p>
     <h3 id="mission-title">Mission: Homeworld</h3>
