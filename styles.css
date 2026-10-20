@@ -483,22 +483,31 @@
   .life-explore:hover {
     transform: none;
   }
-}/* INFINITE EXPLORER — 3D SCENE VISIBILITY FIX */
+/* Infinite Explorer — restore the 3D viewport */
+.planet-wrap {
+  position: relative !important;
+  min-height: 0 !important;
+  height: 640px !important;
+  overflow: hidden !important;
+}
+
 #earth {
-  display: block !important;
-  width: 100%;
-  min-height: 420px;
-  height: 420px;
-  position: relative;
-  overflow: hidden;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  z-index: 2 !important;
 }
 
 #earth canvas {
-  display: block;
+  display: block !important;
   width: 100% !important;
   height: 100% !important;
 }
 
-.planet-wrap {
-  min-height: 420px;
+@media (max-width: 650px) {
+  .planet-wrap {
+    height: 570px !important;
+  }
 }
