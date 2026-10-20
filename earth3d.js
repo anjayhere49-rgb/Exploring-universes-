@@ -1,5 +1,6 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 const mount=document.getElementById('earth');
+console.log('Earth container:', mount);
 const wrap=document.querySelector('.planet-wrap');
 const info={
  Mercury:{color:0x9b938b,size:.16,orbit:.72,type:'Terrestrial',year:'88 days',distance:'0.39 AU',moons:'0',temp:'167°C',description:'A small, rocky world that races around the Sun.',fact:'Mercury has extreme temperature swings because it has almost no substantial atmosphere.'},
