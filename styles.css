@@ -194,3 +194,46 @@
  .planet-wrap .scene-fact { font-size:11px !important; }
  .planet-wrap .planet-label { max-width:72% !important; font-size:7px !important; }
 }
+
+/* Transparent in-scene planet HUD: keep the Solar System visible behind it */
+.planet-wrap .scene-info {
+  top: auto !important;
+  bottom: 54px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: min(390px, calc(100% - 28px)) !important;
+  max-width: calc(100% - 28px) !important;
+  max-height: 42% !important;
+  overflow-y: auto !important;
+  padding: 13px 15px !important;
+  background: rgba(7, 14, 32, 0.48) !important;
+  border: 1px solid rgba(125, 231, 255, 0.58) !important;
+  box-shadow: 0 8px 26px rgba(0,0,0,.18) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+}
+.planet-wrap .scene-info h3 { font-size: 21px !important; margin: 5px 0 !important; }
+.planet-wrap .scene-info > p:not(.scene-fact) { font-size: 11px !important; margin-bottom: 8px !important; }
+.planet-wrap .scene-stats { gap: 5px !important; }
+.planet-wrap .scene-stats span { background: rgba(255,255,255,.08) !important; padding: 7px !important; }
+.planet-wrap .scene-stats small { font-size: 8px !important; }
+.planet-wrap .scene-stats b { font-size: 11px !important; }
+.planet-wrap .scene-fact { font-size: 10px !important; padding-top: 7px !important; margin-top: 7px !important; }
+.planet-wrap .scene-info-close { background: rgba(255,255,255,.14) !important; }
+@media (max-width: 650px) {
+  .planet-wrap .scene-info {
+    bottom: 44px !important;
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+    max-height: 38% !important;
+    padding: 11px 12px !important;
+    background: rgba(7, 14, 32, 0.43) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+  }
+  .planet-wrap .scene-info h3 { font-size: 19px !important; }
+  .planet-wrap .scene-info > p:not(.scene-fact) { font-size: 10px !important; }
+  .planet-wrap .scene-stats b { font-size: 10px !important; }
+  .planet-wrap .scene-fact { font-size: 9px !important; }
+}
