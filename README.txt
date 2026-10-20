@@ -21,3 +21,6 @@ NOTES
 - The 3D scene loads Three.js from a CDN, so an internet connection is needed for the 3D renderer.
 - Planet sizes and orbital distances are stylized for a readable scene, not to scale. Moon counts can change as discoveries are confirmed; temperature values are approximate.
 - This is a website/PWA prototype, not a native Android APK. Never share your GitHub password or verification codes.
+
+SELECTED PLANET INFO OVERLAY
+When a planet is selected, its information panel appears centered inside the 3D viewing area, overlaying the selected planet. Close it with the X button to return to the unobstructed scene.

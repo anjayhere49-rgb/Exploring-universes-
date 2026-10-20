@@ -135,3 +135,37 @@
   .planet-wrap .planet-label { bottom: 7px !important; right: 12px !important; max-width: 65% !important; }
 }
 @media (prefers-reduced-motion: reduce) { .planet-wrap * { scroll-behavior: auto !important; } }
+
+
+/* Selected-planet information: centered inside the 3D viewing area */
+.planet-wrap .scene-info {
+  position: absolute !important;
+  top: 50% !important; bottom: auto !important; left: 50% !important; right: auto !important;
+  transform: translate(-50%, -50%) !important;
+  width: min(420px, calc(100% - 28px)) !important;
+  max-width: calc(100% - 28px) !important;
+  max-height: 78% !important; overflow-y: auto !important;
+  padding: 16px !important; border-radius: 18px !important;
+  background: rgba(7, 14, 32, .88) !important;
+  border: 1px solid rgba(125, 231, 255, .72) !important;
+  box-shadow: 0 12px 34px rgba(0,0,0,.38) !important;
+  backdrop-filter: blur(9px) !important; pointer-events: auto !important;
+}
+.planet-wrap .scene-info-close {
+  pointer-events: auto !important; position: absolute !important; top: 7px !important; right: 9px !important;
+  width: 32px !important; height: 32px !important; border-radius: 50% !important;
+  border: 1px solid rgba(255,255,255,.28) !important; color: #fff !important;
+  background: rgba(255,255,255,.12) !important; font-size: 23px !important;
+}
+.planet-wrap .scene-info h3 { font-size: clamp(21px, 4vw, 27px) !important; }
+.planet-wrap .scene-info > p:not(.scene-fact) { font-size: 13px !important; line-height: 1.5 !important; }
+.planet-wrap .scene-stats { display: grid !important; grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 7px !important; }
+.planet-wrap .scene-stats span { min-width: 0 !important; padding: 9px !important; }
+.planet-wrap .scene-stats b { font-size: 12px !important; overflow-wrap: anywhere !important; }
+.planet-wrap .scene-fact { font-size: 12px !important; line-height: 1.45 !important; }
+@media (max-width: 650px) {
+  .planet-wrap .scene-info { top: 50% !important; bottom: auto !important; left: 50% !important; right: auto !important; transform: translate(-50%,-50%) !important; width: calc(100% - 28px) !important; max-width: calc(100% - 28px) !important; max-height: 74% !important; padding: 14px !important; }
+  .planet-wrap .scene-info h3 { font-size: 22px !important; }
+  .planet-wrap .scene-info > p:not(.scene-fact) { font-size: 12px !important; }
+  .planet-wrap .scene-stats b { font-size: 12px !important; }
+}
